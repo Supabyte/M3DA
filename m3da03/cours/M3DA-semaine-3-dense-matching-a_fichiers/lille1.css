@@ -1,0 +1,380 @@
+@charset "UTF-8";
+/* -------------------------------------------------------------------------- *
+ * Copyright 2010, Universite Lille 1
+ * configuration des couleurs dans le fichier "lille1-cccc.css" et du logo
+ * dans le fichier "lille1-logo.css"
+ * -------------------------------------------------------------------------- */
+
+/* -------------------------------------------------------------------------- *
+ * Structure de la page
+ * -------------------------------------------------------------------------- */
+
+* {
+  margin: 0px 0px 0px 0px;
+  padding: 0px 0px 0px 0px;
+}
+
+html {
+  overflow-y: scroll;
+  overflow-x: hidden;
+}
+
+body {
+  position: relative;    
+  font-family: "Trebuchet MS", Verdana, Tahoma, Arial, Helvetica, sans-serif;
+  color: #666666;
+  font-size: 8pt;
+  font-weight: normal;
+  margin: 0px auto;
+  background: #f9eedc url(images/fond.png) top center repeat-y;
+}
+
+ol, ul {
+  list-style: none;
+}
+
+#wrapper {
+  position: relative;
+  width: 780px;
+  margin: 0px auto;
+  background: #f9eedc url(images/fond.png) top center repeat-y;
+}
+
+/* -------------------------------------------------------------------------- *
+ * Header
+ * -------------------------------------------------------------------------- */
+
+#head {
+  position: relative;
+  top: 0px;
+  height: 68px;
+  margin: 15px 40px;
+}
+
+#page-title-box {
+  position: absolute;
+  top: 4px;
+  left: 340px;
+  width: 400px;
+  height: 60px;
+}
+
+#page-title {
+  font-size: 16pt;
+  text-align: right;
+  color: #ffffff;
+  margin: 5px 20px 2px 0px;
+}
+
+#page-subtitle {
+  font-size: 12pt;
+  text-align: right;
+  color: #ffffff;
+  margin: 2px 20px;
+}
+
+#page-actions {
+  position: absolute;
+  top: -15px;
+  left: 0px;
+  width: 740px;
+  height: 20px;
+  font-size: 8pt;
+  text-align: right;
+}
+
+#page-actions ul {
+  list-style: none;
+  margin: 0px;
+  padding: 2px;
+}
+
+#page-actions li {
+  display: inline;
+  margin: 0px;
+  padding: 2px;
+}
+
+#page-actions li a {
+  text-decoration: none;
+  color: #666666;
+  margin: 0px;
+  padding: 2px;
+}
+
+#page-actions li a:hover {
+  text-decoration: underline;
+  color: #666666;
+  margin: 0px;
+  padding: 2px;
+}
+
+/* -------------------------------------------------------------------------- *
+ * Image
+ * -------------------------------------------------------------------------- */
+
+#image {
+  position: relative;
+  top: 0px;
+  width: 780px;
+  padding-bottom: 10px;
+}
+
+/* -------------------------------------------------------------------------- *
+ * Page body
+ * -------------------------------------------------------------------------- */
+
+#content {
+  width: 780px;
+  margin: 0px auto;
+  position: relative;
+}
+
+#col-left {
+  position: relative;
+  float: left;
+  width: 180px;
+  min-height: 420px;
+  background: url(images/fond-gauche.png) top left no-repeat;
+}
+
+#col-right {
+  position: relative;
+  float: right;    
+  width: 600px;
+}
+
+/* -------------------------------------------------------------------------- *
+ * Left side bar
+ * -------------------------------------------------------------------------- */
+
+#leftsidebar h1 {
+  font-size: 12pt;
+  font-weight: bold;
+  padding: 6px 0px 0px 10px;
+  margin-top: 6px;
+  margin-bottom: -6px;
+  color: #ffffff;
+  height: 32px;
+}
+
+#leftsidebar h1 a {
+  color: #ffffff;
+  font-weight: bold;
+}
+
+#leftsidebar h2 {
+  font-size: 8pt;
+  margin-left: 16px;
+  padding-left: 16px;
+  padding-top: 2px;
+  margin-bottom: -3px;
+  margin-top: 1px;
+  color: #666666;
+  min-height: 14px;
+}
+
+#leftsidebar h2 a {
+  color: #666666;
+}
+
+#leftsidebar h3 {
+  font-size: 7pt;
+  margin-left: 25px;
+  padding-left: 15px;
+  padding-top: 0px;
+  margin-bottom: -3px;
+  margin-top: 3px;
+  color: #666666;
+}
+
+#leftsidebar h3 a {
+  color: #666666;
+}
+
+#leftsidebar h3 a:hover {
+  color: #666666;
+}
+
+#leftsidebar a {
+  text-decoration: none;
+}
+
+/* -------------------------------------------------------------------------- *
+ * Wiki text
+ * -------------------------------------------------------------------------- */
+
+#wikitext h1, a, a:hover, strong {
+  font-weight: normal;
+}
+
+#wikitext h2, h3, h4, h5 {
+  font-weight: normal;
+}
+
+#wikitext strong {
+  font-weight: bold;
+}
+
+#wikitext h1 {
+  font-size: 16pt;
+  margin-bottom: 6px;
+  margin-top: 6px;
+}
+
+#wikitext h2 {
+  font-size: 12pt;
+  margin-bottom: 6px;
+  margin-top: 6px;
+}
+
+#wikitext h3 {
+  font-size: 10pt;
+  margin-bottom: 6px;
+  margin-top: 6px;
+}
+
+#wikitext h4 {
+  font-size: 9pt;
+}
+
+#wikitext h5 {
+  font-size: 8pt;
+}
+
+#wikitext p {
+  text-align: justify;
+  margin-left: 10px;
+  margin-right: 10px;
+  margin-bottom: 6px;
+  margin-top: 6px;
+}
+
+#wikitext a {
+  text-decoration: underline;
+}
+
+#wikitext a:hover {
+  text-decoration: none;
+}
+
+#wikitext table {
+  border-style: none;
+}
+
+#wikitext td {
+  border-style: solid;
+  vertical-align: middle;
+  border-width: 1px;
+  border-color: white;
+  margin: 2px;
+  padding: 1px 3px;
+}
+
+#wikitext ul {
+  text-align: justify;
+  margin-left: 30px;
+  margin-right: 10px;
+  margin-bottom: 6px;
+  margin-top: 6px;
+  list-style-type: square;
+}
+
+#wikitext ol {
+  text-align: justify;
+  margin-left: 30px;
+  margin-right: 10px;
+  margin-bottom: 6px;
+  margin-top: 6px;
+  list-style-type: decimal;
+}
+
+#wikitext .rfloat, .lfloat {
+  margin-left: 10px;
+  margin-right: 10px;
+}
+
+/* -------------------------------------------------------------------------- *
+ * Footer
+ * -------------------------------------------------------------------------- */
+
+#footer {
+  position: relative;
+  top: 0px;
+  height: 154px;
+  background: url(images/pied-de-page-lille1.png) top left no-repeat;
+  clear: both;
+}
+
+#copyright {
+  position: absolute;
+  top: 134px;
+  left: 0px;
+  width: 772px;
+  height: 20px;
+  text-align: right;
+  color: #ffffff;
+  padding: 4px 4px 4px 4px;
+}
+
+#copyright a {
+  text-decoration: none;
+  color: #ffffff;
+}
+
+#copyright a:hover {
+  text-decoration: underline;
+  color: #ffffff;
+}
+
+/* -------------------------------------------------------------------------- *
+ * Other styles
+ * -------------------------------------------------------------------------- */
+
+#wikiedit form {
+  margin: 0px;
+}
+
+#wikiedit textarea {
+  width: 99%;
+  font-family: monospace;
+}
+
+.difftype, .difftime, .diffrestore {
+  font-size: 8pt;
+}
+
+.quickref table {
+  margin: 2px auto;
+}
+
+.quickref tr {
+  border: 1px solid #999999;
+}
+
+.quickref td {
+  padding: 2px;
+  vertical-align: top;
+}
+
+table.markup {
+  border: 1px solid #cccccc;
+}
+
+td.markup1 {
+  border-bottom: 1px solid #cccccc;
+}
+
+dd {
+  margin-left: 18px;
+}
+
+.surligner {
+  font-weight: bold;
+}
+
+p.erreur {
+  font-size: 10pt;
+  color: #ff0000;
+}
+

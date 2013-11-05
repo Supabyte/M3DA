@@ -1,0 +1,281 @@
+\documentclass[11pt,oneside,noprintercorrection]{ustl}
+
+%----------------------------------------------------------------------
+%                     Chargement de quelques packages
+%----------------------------------------------------------------------
+
+% Si l'on veut produire une version PDF avec distiller ou pdflatex :
+%\usepackage{tlhypref}
+\usepackage[pdfborder=0 0 0]{ustl}
+% Si l'on produit le PDF avec pdflatex, ceci remplace la plupart
+% des polices EC par des polices CM, plus adaptees a la generation de PDF,
+% car ayant des equivalents PS :
+\usepackage{aeguill}
+
+
+% Pour les figures PS :
+\usepackage{graphicx}
+
+% Si on veut des mini-tables des matieres (utiliser minitoc-hyper
+% en conjonction avec tlhypref) :
+\usepackage[french]{minitoc}
+%\usepackage[french]{minitoc-hyper}
+
+\usepackage[frenchb]{babel}
+\usepackage{graphicx}
+\usepackage{float}
+
+% Pour les codes
+\usepackage{listings}
+\lstset{language=C++,basicstyle=\small}
+
+\synctex = 1
+
+%-------------------------------------------------------------------
+%  Surcharge de commandes pour les variables et page d'en-tête
+%-------------------------------------------------------------------
+
+\makeatletter
+
+%
+% les deux commandes suivantes sont entre \makeatletter
+% et \makeatother parce qu'elles utilisent des `@'.
+%
+
+\renewcommand{\@DFD}{Université Lille 1}
+
+
+\renewcommand{\@NancyIhe@d}{{\UseEntryFont{ThesisFirstPageHead}\noindent
+    \centerline{\if@logo@uhp@
+                    {\setbox0=\hbox{$\raise2.3cm\hbox{\UHPLogo}$}%
+                     \ht0=\baselineskip\box0}\hfill
+                \else
+                    Université des Sciences et Technologies de Lille%
+                \fi}%
+    \@TL@cmn@head\\
+    \par
+    }%
+    }
+
+
+\newcommand\TheseLilleI{\renewcommand{\@ThesisFirstPageHead}{\@NancyIhe@d}%
+                         \ThesisDiploma{{\UseEntryFont{ThesisDiploma}%
+                              \\[3mm]
+            {\UseEntryFont{ThesisSpecialty}( )}}}}
+
+\makeatother
+
+%-------------------------------------------------------------------
+%           Corrections pour les imprimantes recto-verso
+%                          (A AJUSTER)
+%-------------------------------------------------------------------
+
+%\ShiftOddPagesRight{-1mm}
+%\ShiftOddPagesDown{2.5mm}
+%\ShiftEvenPagesRight{0mm}
+%\ShiftEvenPagesDown{0mm} 
+
+%-------------------------------------------------------------------
+%                Mise en page
+%-------------------------------------------------------------------
+
+%-------------------------------------------------------------------
+%                             interligne
+%-------------------------------------------------------------------
+\renewcommand{\baselinestretch}{1.3}
+
+%-------------------------------------------------------------------
+%                             Marges
+%-------------------------------------------------------------------
+
+% pour positionner les vraies marges:
+%\SetRealMargins{1mm}{1mm}
+
+%-------------------------------------------------------------------
+%                             En-tetes
+%-------------------------------------------------------------------
+%On n'utilise pas les logos
+%\DontShowLogos
+
+% Les en-tetes: quelques exemples
+%\UppercaseHeadings
+%\UnderlineHeadings
+%\newcommand\bfheadings[1]{{\bf #1}}
+%\FormatHeadingsWith{\bfheadings}
+%\FormatHeadingsWith{\uppercase}
+%\FormatHeadingsWith{\underline}
+\newcommand\upun[1]{\uppercase{\underline{\underline{#1}}}}
+\FormatHeadingsWith\upun
+
+\newcommand\itheadings[1]{\textit{#1}}
+\FormatHeadingsWith{\itheadings}
+
+% pour avoir un trait sous l'en-tete:
+\setlength{\HeadRuleWidth}{0.4pt}
+
+%-------------------------------------------------------------------
+%                Chemin d'inclusion des graphiques
+%-------------------------------------------------------------------
+
+\graphicspath{{img/}{./}}
+
+%-------------------------------------------------------------------
+%                         Les references
+%-------------------------------------------------------------------
+
+\NoChapterNumberInRef \NoChapterPrefix
+
+%-------------------------------------------------------------------
+%                           Brouillons
+%-------------------------------------------------------------------
+
+% ceci ajoute une marque `brouillon' et la date
+%\ThesisDraft
+
+
+
+\begin{document}
+\renewcommand{\labelitemi}{$\bullet$}
+\renewcommand{\labelitemii}{$\circ$}
+%-------------------------------------------------------------------
+%                          Encadrements
+%-------------------------------------------------------------------
+
+% encadre les chapitres dans la table des matieres:
+% (ces commandes doivent figurer apres \begin{document}
+
+%\FrameChaptersInToc
+%\FramePartsInToc
+
+
+%-------------------------------------------------------------------
+%            Reinitialisation de la numerotation des chapitres
+%-------------------------------------------------------------------
+
+% Si la commande suivante est presente,
+% elle doit figurer APRES \begin{document}
+% et avant la premiere commande \part
+\ResetChaptersAtParts
+
+%-------------------------------------------------------------------
+%               mini-tables des matieres par chapitre
+%-------------------------------------------------------------------
+
+% preparer les mini-tables des matieres par chapitre.
+% (commande de minitoc.sty)
+%\dominitoc
+
+%-------------------------------------------------------------------
+%                         Page de titre:
+%-------------------------------------------------------------------
+
+
+\ThesisKind{Rapport de projet XXX}
+\ThesisPresentedThe{soutenu le XXXX}
+\ThesisTitle{Titre du projet}
+\ThesisAuthor{Nom du ou des auteurs}
+%\NomDuLaboOuEntreprise{Nom labo ou entreprise}
+%\LogoLaboOuEntreprise{alcove} % Image du logo du labo ou ets dans le rep img
+
+\NomDuLaboOuEntreprise{}
+\LogoLaboOuEntreprise{} % Image du logo du labo ou ets dans le rep img
+
+\TheseLilleI
+
+\NewJuryCategory{encadrant}{\it Encadrant :}
+                        {\it Encadrants :}
+
+%\encadrant = {Nom encadrant 1\\
+%              Nom encadrant 2}
+
+% Creation de la page de titre:
+\MakeThesisTitlePage
+
+
+%-------------------------------------------------------------------
+%                  ecriture de `Chapitre' et `Partie'
+%                      dans la table des matieres
+%-------------------------------------------------------------------
+
+\WritePartLabelInToc \WriteChapterLabelInToc
+
+%-------------------------------------------------------------------
+%                        table des matieres
+%-------------------------------------------------------------------
+
+\tableofcontents
+
+%-------------------------------------------------------------------
+%              Exemple d'utilisation de \SpecialSection
+%-------------------------------------------------------------------
+
+% La commande \mainmatter (nouvelle commande LaTeX2e) permet de passer
+% a la numerotation arabe (ce que fait \pagenumbering{arabic})
+% et de faire commencer la nouvelle page 1 sur une page impaire.
+% On evitera donc d'utiliser directement \pagenumbering{arabic}.
+\mainmatter
+
+% ----------------------------------------------------------------
+\SpecialSection{Introduction}
+
+
+
+% Pour ne pas avoir le mot `Chapitre' au debut de chaque chapitre.
+\NoChapterHead
+
+XXXX
+
+
+%--------------------------------------------------------------------------------------
+%--------------------------------------------------------------------------------------
+\chapter{Prise en main de \LaTeX}
+
+
+\section{Similarité par SSD}
+
+Tout d'abord, on va chercher des correspondences de points entre les images obtenues par les caméras de gauche et de droite. Dans l'image de droite, les objects apparaissent un peu plus a la gauche \ref{fig:both}. 
+
+\begin{figure}[!ht]
+  \centering
+  \includegraphics[height=4cm]{both.png}
+  \caption{Images gauche et droite}
+  \label{fig:both}
+\end{figure}
+
+Alors, pour retrouver un pixel de l'image de gauche dans l'image de droite, il faut le rechercher dans valeurs égales ou plus petites de l'axe $x$ (et l'inverse pour un pixel de l'image de droite dans l'image de gauche). Pour savoir si deux pixels des images correspondent a le même point du monde réel, on examinera leur environnement et le comparera en utilisant la somme de distances carrées.
+\\
+La fonction iviComputeLeftSSDCost calcule la SSD entre les deux images en prennant en compte un décalage donné et une taille de la fenetre. Dans un premier temps, on va calculer la SSD pour décalages entre 0 et 32, et enregistrer chaque resultat dans mSSD. La variable mMinSSD contiendra le minimum mSSD pour chaque pixel, que sera enregistre dans mLeftDisparityMap on enregistrera le decalage qui correspond a mMinSSD
+\\
+\subsection*{Accès aux pixels}
+Grace à ces instructions
+
+\begin{lstlisting}[frame=trBL]
+pdPtr1 = mMinSSD.ptr<double>(iRow);
+pdPtr2 = mSSD.ptr<double>(iRow);
+pucDisparity = mLeftDisparityMap.ptr<unsigned char>(iRow);
+\end{lstlisting}
+
+On prends des pointeurs aux débuts des images. En utilisant l'operateur increment, on change leur position selon leur type.
+
+\\
+La taille de la démi-fenêtre est utilisée pour obtenir le début de chaque ligne.
+\begin{lstlisting}[frame=trBL]
+pdPtr1 += iWindowHalfSize;
+pdPtr2 += iWindowHalfSize;
+pucDisparity += iWindowHalfSize;
+\end{lstlisting}
+Les pixels etant plus proches du bord de l'image que la taille de la démi-fenetre n'ont pas assez pixels autour d'eux (\ref{fig:fenetre}), donc il faut commencer par le premier pixel ayant suffisament de pixels dans son environnement.
+
+\begin{figure}[!ht]
+  \centering
+  \includegraphics[height=4cm]{fenetre.png}
+  \caption{Calculs redundants}
+  \label{fig:fenetre}
+\end{figure}
+
+\section{Vérification gauche-droite}
+Pour minimiser le nombre de faux appariments, on peut conserver seulement les correspondences satisfaisant cette proprieté.
+
+$$
+\hat{d}_{r} (x_{r} , y) = \hat{d}_{l} (x_{r} + \hat{d}_{r} (x_{r} , y), y)
+\hat{d}_{l} (x_{l} , y) = \hat{d}_{r} (x_{l} 

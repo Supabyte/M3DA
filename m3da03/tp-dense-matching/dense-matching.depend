@@ -1,0 +1,27 @@
+# depslib dependency file v1.0
+1381306125 source:/home/bruno/Dropbox/ivi/m3da/m3da03/tp-dense-matching/dense-matching.cpp
+	<stdio.h>
+	<opencv2/core/core.hpp>
+	<opencv2/imgproc/imgproc.hpp>
+	<opencv2/highgui/highgui.hpp>
+	<getopt.h>
+	"glue.hpp"
+	"prenom-nom.hpp"
+
+1323681494 /home/bruno/Dropbox/ivi/m3da/m3da03/tp-dense-matching/glue.hpp
+
+1323681494 /home/bruno/Dropbox/ivi/m3da/m3da03/tp-dense-matching/prenom-nom.hpp
+
+1323681494 source:/home/bruno/Dropbox/ivi/m3da/m3da03/tp-dense-matching/glue.cpp
+	<stdio.h>
+	<string>
+	"glue.hpp"
+
+1323681494 source:/home/bruno/Dropbox/ivi/m3da/m3da03/tp-dense-matching/prenom-nom.cpp
+	<stdio.h>
+	<opencv2/core/core.hpp>
+	<opencv2/imgproc/imgproc.hpp>
+	<opencv2/highgui/highgui.hpp>
+	<math.h>
+	"prenom-nom.hpp"
+

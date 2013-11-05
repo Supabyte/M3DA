@@ -1,0 +1,5 @@
+\select@language {french}
+\@frame@switchfalse 
+\contentsline {spsection}{Introduction}{1}{division.3}
+\contentsline {spsection}{Conclusion}{6}{division.4}
+\contentsline {chapter}{\numberline {Annexe\ A}Annexe 1}{7}{division.5}

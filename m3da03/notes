@@ -1,0 +1,7 @@
+iWindowHalfSize = w
+dMinSSD
+
+
+(2n + 1)(2m + 1) redundant multiplications
+(2n + 1)x(2m + 1) es el tamaño de la ventana de correlación
+En el paper no está centrado. x, y es la esquina superior izquierda de la ventana de correlación, pero hace lo mismo: para x+1 quita la primera y suma la última columna.

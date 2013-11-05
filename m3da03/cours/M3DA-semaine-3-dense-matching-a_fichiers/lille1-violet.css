@@ -1,0 +1,67 @@
+@charset "UTF-8";
+/* -------------------------------------------------------------------------- *
+ * Copyright 2010, Universite Lille 1
+ * definit les couleurs "violet" de la charte Lille 1
+ * fonce : #724692, clair: #8d6ba8, tres clair: #ece2f4
+ * -------------------------------------------------------------------------- */
+
+/* -------------------------------------------------------------------------- *
+ * Header
+ * -------------------------------------------------------------------------- */
+
+#page-title-box {
+  background: url(images/violet-bloc-droite.png) top left no-repeat;
+}
+
+/* -------------------------------------------------------------------------- *
+ * Left side bar
+ * -------------------------------------------------------------------------- */
+
+#leftsidebar h1 {
+  background: url(images/violet-bloc-gauche.png) top left no-repeat;
+}
+
+#leftsidebar h2 {
+  background: url(images/violet-fleche.png) top left no-repeat;
+}
+
+#leftsidebar h2:hover {
+  color: #724692;
+}
+
+#leftsidebar h2 a:hover {
+  color: #724692;
+}
+
+/* -------------------------------------------------------------------------- *
+ * Wiki text
+ * -------------------------------------------------------------------------- */
+
+#wikitext h1, a, a:hover, strong {
+  color: #724692;
+}
+
+#wikitext h2, h3, h4, h5 {
+  color: #8d6ba8;
+}
+
+#wikitext a:hover {
+  color: #724692;
+}
+
+#wikitext table {
+  background: #ece2f4;
+}
+
+#wikitext ul {
+  list-style-image: url(images/violet-carre.png);
+}
+
+/* -------------------------------------------------------------------------- *
+ * Other styles
+ * -------------------------------------------------------------------------- */
+
+.surligner {
+  color: #724692;
+}
+

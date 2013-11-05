@@ -1,0 +1,61 @@
+/* -------------------------------------------------------------------------- *
+ * Copyright 2010, Universite Lille 1
+ * Acces aux differents sites
+ * -------------------------------------------------------------------------- */
+@charset "UTF-8";
+
+#acces {
+	background-color:#000000;
+	background-image:url(images/fond-lille1.png);
+	background-repeat:repeat-x;
+	height:30px;
+	width:100%;
+	min-width: 600px;
+}
+
+#acces_direct {
+	float:left;
+	margin:5px 0 0 5px;
+	font-size:9px;
+	height:17px;
+        width:240px;
+}
+
+#acces div {
+	width:100%;
+        height:25px;
+}
+
+#acces img {
+	margin:0 0 0 20px;
+	float:left;
+}
+
+#acces p {
+	margin: 4px 0 0 5px;
+        padding-top: 3px;
+	color:#FFFFFF;
+	float:left;
+}	
+
+#acces input {
+	float:left;
+	background:none;
+	border:none;
+	color:#FFFFFF;
+	padding:4px 0 0 2px;
+	font-weight:bold;
+	cursor:pointer;
+}
+
+#acces input:hover {
+	color:#e5e5e5;
+}
+
+div#englobe_acces {
+	width: 480px;
+	height: 28px;
+	float: right;
+        margin-right:10px;
+}
+

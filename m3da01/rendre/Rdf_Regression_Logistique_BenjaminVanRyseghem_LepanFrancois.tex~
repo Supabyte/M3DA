@@ -1,0 +1,43 @@
+\documentclass[a4paper,10pt]{article}
+\input{/Users/WannaGetHigh/workspace/latex/macros.tex}
+
+\title{Calibration de camÈra par la mÈthode de Zhang}
+
+\author{Bruno \bsc{Ordozgoiti}}
+
+\begin{document}
+\maketitle
+
+Voici les étapes principales de l'algorithme de régression logistique.
+
+Ici on utilise comme données d'entrainement les \emph{m} images (x) avec leurs \emph{m} étiquettes (y). 
+
+\begin{paragraph}{Entrainement}~ \\
+\\
+Tout d'abord il faut entraîner un classificateur de régression logistique 
+$\displaystyle h^{(i)}_\theta = \frac{1}{1+e^{\theta^{T_x}}}$ 
+pour chaque classe i. 
+
+Pour l'entrainer il faut trouver le vecteur $\theta$ qui séparera la classe i des autres classes. 
+
+Ce vecteur est trouvé par la relation suivante:  \\
+\\
+$\displaystyle \theta^* = \min \limits_\theta  J(\theta)$ où \\
+\\
+$\displaystyle J(\theta) = - \frac{1}{m} \sum \limits_{i=1}^m y^{(i)} \log(h_\theta (x^{(i)})) - (1 - y^{(i)}) \log(1 - h_\theta (x^{(i)}))$ \\
+\\
+
+\end{paragraph} 
+
+Ensuite lorsqu'on à fini de faire les entrainements de chaque classificateur il reste à faire la prédiction de la classe de la nouvelle image x.
+
+\begin{paragraph}{Prédiction}~ \\
+\\
+Afin de prédire la classe d'une nouvelle image x il faut choisir sont étiquette y tel que : \\
+\\
+$\displaystyle y = \max \limits_{i = 1...l} h^{(i)}_\theta$ i.e on choisi le classificateur le plus confiant.\\
+\\
+Puis on répète le processus pour chaque nouvelle image.
+\end{paragraph}
+
+\end{document}

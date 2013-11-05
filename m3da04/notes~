@@ -1,0 +1,15 @@
+Si tenemos m puntos de control y grado p, necesitamos m+p+1 nodos. ¿por qué?
+
+Q5: p=1: sumando izq mult por 1 si k=2, sumando dcho mult por 1 si k=1
+	afectan P1 y P2.
+    p=2: sumando izq mult por 1 si k=2, sumando dcho mult por 1 si k=0
+	afectan P1 y P2.
+    Cuanto mayor el grado, más tarde el término de la derecha en llegar a p=0 en las llamadas recursivas, así que más habrá subido k. Eso quiere decir que a mayor el grado, menor es el Pk que afecta.
+
+
+
+TODO
+-Refactorizar en GLView. Hay repetido entre animation y splines.
+-OOP para nurbs y uniformes.
+-Intentar evitar el switch
+-Usar memoria dinámica si se puede

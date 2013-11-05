@@ -1,0 +1,10 @@
+cosa del tipo de waira, circular para reconstrucción 3D
+devernay
+shi et tomasi
+
+F * matrizcontodoslospuntos nos da todas las rectas
+
+opencv_imgproc
+
+http://docs.opencv.org/modules/imgproc/doc/feature_detection.html
+http://opencv.willowgarage.com/documentation/cpp/core_basic_structures.html

@@ -1,0 +1,37 @@
+.sourcecode {
+  font-family: monospace;
+  font-size: 8pt;
+  background-color: #ece2f4;
+  color: #000000;
+  border: 1px solid #666666;
+  padding: 1em;
+}
+
+.blockcomment {
+  color: #777777;
+}
+
+.linecomment {
+  color: #777777;
+}
+
+.category_1 {
+  font-weight: bold;
+  color: #0000aa;
+}
+
+.category_2 {
+  color: #660066;
+}
+
+.category_3 {
+  color: #00cc00;
+}
+
+.quote {
+  color: #0000cc;
+}
+
+.prepro {
+  color: #999999;
+}

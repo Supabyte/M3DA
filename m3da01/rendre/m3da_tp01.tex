@@ -1,0 +1,130 @@
+
+% -*- coding: utf-8-unix -*-
+% format using xelatex
+\documentclass[a4paper,10pt]{article}
+\input{/home/bruno/Dropbox/macros.tex}
+\usepackage[utf8]{inputenc}
+
+
+\title{Calibration de caméra par la méthode de Zhang}
+
+\author{Bruno \bsc{Ordozgoiti}}
+
+\begin{document}
+\maketitle
+
+La méthode de Zhang fait une estimation des paramètres de la caméra en estimant une homographie entre certaines points connus de la scène et quelques points des images disponibles. Chacune de ces estimations nous donne deux contraintes des paramètres intrinsèques.
+\begin{paragraph}{Estimation des paramètres intrinsèques}~ \\
+\\
+La premiére fonction a compléter est ZhangConstraintTerm(H, i, j), qui doit calculer la terme $ v_{ij}$, utilisé pour calculer les contraintes.
+
+Il faut noter que pour suivre la notation de Zhang c'est nécessaire de transposer la matrice H, puisque l'auteur utilise $h_i$ pour faire référence à la i-ème colonne de la matrice H.
+
+Ayant les contraintes, on peut alors calculer la matrice B et ensuite, dans la fonction IntrinsicMatrix, on calcule les paramètres intrinsèques en utilisant la méthode décrit dans l'appendice B de l'article de Zhang. 
+
+Aprés avoir codé cette fonction, les resultats fournis sont les suivants.
+$$
+\left| \begin{array}{ccc}
+    3498.2767  & - 3.13105    &  336.76583 \\  
+    0         &  3503.8946   &  220.1142   \\
+    0         &  0          &  1         
+ 
+ \end{array}
+\right|
+$$
+
+Ces resultats sont assez proches a les données disponibles dans les fichiers image-i.txt.
+
+\end{paragraph}
+
+\begin{paragraph}{Estimation des paramètres extrinsèques}~ \\
+\\
+Ayant les estimations de l'homographie et des paramètres intrinsèques, les paramètres extrinsèques peuvent être calculés aisément. Après l'avoir fait, ces sont les resultats.
+\\
+Image 1
+$$
+\left| \begin{array}{cccc}
+    0.9999998  &  0.0009052 &   0.0006686 & - 48.811566  \\
+    0.0000377  &  0.9982948 &   0.0015769 &   54.733308  \\
+    0.0006696  & - 0.0015763 & - 0.9982946 &   9854.3605  
+ 
+ \end{array}
+\right|
+$$
+
+Cette matrice répresente une rotation négligeable (0.00177 radians) et un déplacement de (-48, 54, 9854). La méthode a eu un erreur autour de 100 unités pixel.
+
+\\
+Image 2
+$$
+\left| \begin{array}{cccc}
+    0.7124496 &   0.0007762 &   0.7024372 & - 46.123208 \\  
+  - 0.0039703 &   1.0010299 & - 0.0000903 &   43.83032   \\
+  - 0.7017120 & - 0.0006379 &   0.7131865 &   7905.8899  
+ 
+ \end{array}
+\right|
+$$
+
+Cette matrice répresente une rotation de 0.7778 radians autour de l'axe Y. L'estimation est très précise. Le déplacement est de (-46, 43, 7905). La méthode a eu encore une erreur entre 50 et 100 unités pixel.
+
+\\
+Image 3
+$$
+\left| \begin{array}{cccc}
+    0.9848432 &   0.1745697 &   0.0003743 & - 43.812298  \\
+  - 0.1734468 &   0.9833136 & - 0.0004946 &   49.196566  \\
+    0.0002832 &   0.0005524 &   0.9986883 &   8870.6728  
+ 
+ \end{array}
+\right|
+$$
+
+Cette matrice répresente une rotation de 0.175 radians autour de l'axe Z. Le déplacement est encore bien estimé.
+
+\\
+Image 4
+$$
+\left| \begin{array}{cccc}
+    1.        &   0.0045336 &   0.0000411 & - 143.86961  \\
+    0.0000023 &   0.7020868 &   0.7143857 &   42.078156  \\
+  - 0.0000609 & - 0.714386  &   0.7020868 &   8872.4252  
+ 
+ \end{array}
+\right|
+$$
+
+Cette matrice répresente une rotation de 0.794 radians autour de l'axe X. Le déplacement est encore bien estimé.
+\\
+\\
+Après avoir examiné ces resultats, la méthode semble avoir toujours une erreur dans le déplacement autour de (-45, 45, -125). La rotation est toujours bien estimé.
+
+
+\end{paragraph}  
+
+\begin{paragraph}{Version simplifiée de la méthode de Zhang}~ \\
+\\
+En supposant que les paramètres intrinsèques de la caméra sont connus, la distance focale peut être calculée aisément en utilisant l'équation qui relie les points de la scéne et les points projectés par l'homographie.
+
+Soit $P=[R t]M$ où M est un point de la scéne et [Rt] est la matrice des paramètres extrinsèques. Alors on obtient le point image $m$ de la façon suivante.
+$$
+ \begin{array}{c}
+    m_x = f \alpha P_x +   f \gamma P_y +   u_0 P_z \\
+    m_y = f \beta P_y +   v_0 P_z \\
+    m_z = P_z
+ \end{array}
+$$
+
+d'où on obtient, alors,
+
+$$
+f = \frac{m_x - u_0 P_z}{\alpha P_x + \gamma P_y} = \frac{m_y - v_0 P_z}{\beta P_y}
+$$
+
+
+
+
+\end{paragraph}  
+
+
+\end{document}

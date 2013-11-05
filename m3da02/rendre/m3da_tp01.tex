@@ -1,0 +1,162 @@
+
+% -*- coding: utf-8-unix -*-
+% format using xelatex
+\documentclass[a4paper,10pt]{article}
+\input{/home/bruno/Dropbox/macros.tex}
+\usepackage[utf8]{inputenc}
+
+
+\title{Mise en correspondance stéréoscopique}
+
+\author{Bruno \bsc{Ordozgoiti}}
+
+\begin{document}
+\maketitle
+
+La première part s'agit simplement de initialiser la matrice que permet calculer aisément le produit vectoriel.
+
+
+\begin{paragraph}{Calcul de la matrice fondamentale}~ \\
+\\
+
+$$
+p^{\times} = 
+\left| \begin{array}{ccc}
+    0  & -p_{z}    &  p_{y} \\  
+    p_{z}         &  0   &  -p_{x}   \\
+    -p_{y}         &  p_{x}          &  0         
+ 
+ \end{array}
+\right|
+$$
+
+Ça nous permet calculer la matrice fondamental $F$, qui nous donnera la possibilité d'obtenir les droites epipolaires.
+
+$$
+F = (P_{2}O_{1})^{\times}P_{2}P_{1}^+
+$$
+
+La matrice obtenue est la suivante.
+
+$$
+\left| \begin{array}{ccc}
+    -4.55191e-15  & -1.87385e+01    &  4.49723e+03 \\  
+    -1.87384e+01         &  2.06585e-13   &  3.05726e+05   \\
+    4.49722e+03         &  -2.93733e+05          &  -2.87822e+06         
+ 
+ \end{array}
+\right|
+$$
+
+La pseudo-inverse a été calculée en utilisant la méthode p1.inv(DECOMP\_SVD)
+\\
+
+Soit 
+$$
+A_1=
+\left|
+ \begin{array}{ccc}
+    \alpha_{1} & \gamma_{1} &  	u_{1} \\
+    0 & 	\beta_{1} &   	v_{1} \\
+    0 & 	0 & 		1
+ \end{array}
+\right|
+$$
+la matrice des paramètres intrinsèques de la caméra située à gauche. 
+Alors l'equation de la droite épipolaire de l'image droite associée au centre de l'image de gauche est la suivante:
+
+$$
+d=F 
+\left|
+\begin{array}{c}
+    u_{1} \\
+    v_{1} \\
+    1
+ \end{array}
+\right|
+$$
+
+Soit 
+$$
+A_2=
+\left|
+ \begin{array}{ccc}
+    \alpha_{2} & \gamma_{2} &  	u_{2} \\
+    0 & 	\beta_{2} &   	v_{2} \\
+    0 & 	0 & 		1
+ \end{array}
+\right|
+$$
+la matrice des paramètres intrinsèques de la caméra située à droite. Alors la droite épipolaire de l'image gauche associée au centre de l'image de droite est la suivante:
+$$
+d=F^{t} 
+\left|
+\begin{array}{c}
+    u_{2} \\
+    v_{2} \\
+    1
+ \end{array}
+\right|
+$$
+
+Soit 
+$$
+A_3=
+\left|
+ \begin{array}{ccc}
+    \alpha_{3} & \gamma_{3} &  	u_{3} \\
+    0 & 	\beta_{3} &   	v_{3} \\
+    0 & 	0 & 		1
+ \end{array}
+\right|
+$$
+la matrice des paramètres intrinsèques de la caméra située à gauche. Alors la droite épipolaire de l'image droite associée au point situé au centre du côté haut de l'image de gauche.
+$$
+d=F
+\left|
+\begin{array}{c}
+    u_{3} \\
+    0 \\
+    1
+ \end{array}
+\right|
+$$
+  
+\end{paragraph}
+
+\begin{paragraph}{Extraction des coins}~ \\
+\\
+Après avoir utilisé la fonction goodFeaturesToTrack, on transform les vecteurs en coordonnées homogènes en ajoutant une troisième composante avec la valeur 1.
+\\
+Avec la valeur MAX\_CORNERS présent dans le code (32), la mèthode ne trouve pas toutes les coins qu'on voit dans la sphere. En l'augmentant jusqu'à 64, le resultat est satisfaisant. Néanmoins, cela provoque l'apparition d'un plus grand nombre de droites epipolaires, ce qui peut faire la mise en correspondance plus difficile.
+\end{paragraph}
+
+
+\begin{paragraph}{Calcule des distances}~ \\
+Pour la part suivante du processus il faut calculer la matrice de distances. Chaque valeur $a_{ij}$ de cette matrice sera calculée de la façon suivante.
+
+$$
+a_{ij}=dist(m1_{i}, d1_{j})+dist(m2_{j}, d2_{i})  
+$$ 
+où $m1_{i}$ est un point dans le plan $\pi_{1}$, 
+\\$m2_{j}$ est un point dans le plan $\pi_{2}$, 
+\\$d1_{j}$ est la droite epipolaire du plan $\pi_{1}$ associée au point $m2_{j}$ et 
+\\$d2_{i}$ est la droite epipolaire du plan $\pi_{2}$ associée au point $m1_{i}$.
+\end{paragraph}
+
+\begin{paragraph}{Mise en correspondance}~ \\
+Ayant la matrice des distances, on peut rechercher des homologues. Chaque ligne répresent un coin dans l'image droite. Chaque colonne répresent un pixel dans l'image gauche.
+\\
+Pour retrouver quel pixel de l'image gauche est l'homologue de chaque pixel de l'image droite il suffit rechercher la valeur la plus petite de chaque ligne, sachant que pour répresenter en fait un pair, elles doit être plus petite que le seuil indiqué.
+\\
+Sachant que la mise en correspondance est faite en calculant que la distance entre les coins et les droites épipolaires, il peut y avoir des correspondences completement faux. On peut ajouter une autre contrainte pour minimiser le nombre de erreurs. 
+\\Etant donné que l'image droite a été obtenue avec une faible rotation de la caméra autour de l'axe Y (vertical), les homologues droites des pixels gauches doit avoir une valeur $x$ plus petit. On peut alors enlever tous les homologues dont cette contrainte n'est pas confirmée. On pourrait aussi géneraliser cette optimisation en prenant en compte l'angle de rotation de la caméra. 
+\\
+En utilisant, comme indiqué avant, un plus grande valeur de la variable MAX\_CORNERS, le nombre de correspondences faux augmente vite.
+\\
+Avec les resultats obtenus, la tâche de compter les points occultés sur chaque image semble être ambigu. En fait, il ne semble y avoir qu'un coin de l'image gauche qui n'a pas été trouvé dans l'image droite, mais prenant en compte que la mèthode a trouvé plusiers coins dans chaque intersection, on pourrait considérer qu'il y en a plus.
+\\
+Le nombre de correspondences trouvés est 21, dont 10 sont faux.
+\end{paragraph}
+
+\end{document}

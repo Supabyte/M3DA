@@ -1,0 +1,348 @@
+\documentclass[11pt,oneside,noprintercorrection]{ustl}
+
+%----------------------------------------------------------------------
+%                     Chargement de quelques packages
+%----------------------------------------------------------------------
+
+% Si l'on veut produire une version PDF avec distiller ou pdflatex :
+%\usepackage{tlhypref}
+\usepackage[pdfborder=0 0 0]{ustl}
+% Si l'on produit le PDF avec pdflatex, ceci remplace la plupart
+% des polices EC par des polices CM, plus adaptees a la generation de PDF,
+% car ayant des equivalents PS :
+\usepackage{aeguill}
+
+
+% Pour les figures PS :
+\usepackage{graphicx}
+
+% Si on veut des mini-tables des matieres (utiliser minitoc-hyper
+% en conjonction avec tlhypref) :
+\usepackage[french]{minitoc}
+%\usepackage[french]{minitoc-hyper}
+
+\usepackage[frenchb]{babel}
+\usepackage{graphicx}
+\usepackage{float}
+
+% Pour les codes
+\usepackage{listings}
+\lstset{language=C++,basicstyle=\small}
+
+\synctex = 1
+
+%-------------------------------------------------------------------
+%  Surcharge de commandes pour les variables et page d'en-tête
+%-------------------------------------------------------------------
+
+\makeatletter
+
+%
+% les deux commandes suivantes sont entre \makeatletter
+% et \makeatother parce qu'elles utilisent des `@'.
+%
+
+\renewcommand{\@DFD}{Université Lille 1}
+
+
+\renewcommand{\@NancyIhe@d}{{\UseEntryFont{ThesisFirstPageHead}\noindent
+    \centerline{\if@logo@uhp@
+                    {\setbox0=\hbox{$\raise2.3cm\hbox{\UHPLogo}$}%
+                     \ht0=\baselineskip\box0}\hfill
+                \else
+                    Université des Sciences et Technologies de Lille%
+                \fi}%
+    \@TL@cmn@head\\
+    \par
+    }%
+    }
+
+
+\newcommand\TheseLilleI{\renewcommand{\@ThesisFirstPageHead}{\@NancyIhe@d}%
+                         \ThesisDiploma{{\UseEntryFont{ThesisDiploma}%
+                              \\[3mm]
+            {\UseEntryFont{ThesisSpecialty}( )}}}}
+
+\makeatother
+
+%-------------------------------------------------------------------
+%           Corrections pour les imprimantes recto-verso
+%                          (A AJUSTER)
+%-------------------------------------------------------------------
+
+%\ShiftOddPagesRight{-1mm}
+%\ShiftOddPagesDown{2.5mm}
+%\ShiftEvenPagesRight{0mm}
+%\ShiftEvenPagesDown{0mm} 
+
+%-------------------------------------------------------------------
+%                Mise en page
+%-------------------------------------------------------------------
+
+%-------------------------------------------------------------------
+%                             interligne
+%-------------------------------------------------------------------
+\renewcommand{\baselinestretch}{1.3}
+
+%-------------------------------------------------------------------
+%                             Marges
+%-------------------------------------------------------------------
+
+% pour positionner les vraies marges:
+%\SetRealMargins{1mm}{1mm}
+
+%-------------------------------------------------------------------
+%                             En-tetes
+%-------------------------------------------------------------------
+%On n'utilise pas les logos
+%\DontShowLogos
+
+% Les en-tetes: quelques exemples
+%\UppercaseHeadings
+%\UnderlineHeadings
+%\newcommand\bfheadings[1]{{\bf #1}}
+%\FormatHeadingsWith{\bfheadings}
+%\FormatHeadingsWith{\uppercase}
+%\FormatHeadingsWith{\underline}
+\newcommand\upun[1]{\uppercase{\underline{\underline{#1}}}}
+\FormatHeadingsWith\upun
+
+\newcommand\itheadings[1]{\textit{#1}}
+\FormatHeadingsWith{\itheadings}
+
+% pour avoir un trait sous l'en-tete:
+\setlength{\HeadRuleWidth}{0.4pt}
+
+%-------------------------------------------------------------------
+%                Chemin d'inclusion des graphiques
+%-------------------------------------------------------------------
+
+\graphicspath{{img/}{./}}
+
+%-------------------------------------------------------------------
+%                         Les references
+%-------------------------------------------------------------------
+
+\NoChapterNumberInRef \NoChapterPrefix
+
+%-------------------------------------------------------------------
+%                           Brouillons
+%-------------------------------------------------------------------
+
+% ceci ajoute une marque `brouillon' et la date
+%\ThesisDraft
+
+
+
+\begin{document}
+\renewcommand{\labelitemi}{$\bullet$}
+\renewcommand{\labelitemii}{$\circ$}
+%-------------------------------------------------------------------
+%                          Encadrements
+%-------------------------------------------------------------------
+
+% encadre les chapitres dans la table des matieres:
+% (ces commandes doivent figurer apres \begin{document}
+
+%\FrameChaptersInToc
+%\FramePartsInToc
+
+
+%-------------------------------------------------------------------
+%            Reinitialisation de la numerotation des chapitres
+%-------------------------------------------------------------------
+
+% Si la commande suivante est presente,
+% elle doit figurer APRES \begin{document}
+% et avant la premiere commande \part
+\ResetChaptersAtParts
+
+%-------------------------------------------------------------------
+%               mini-tables des matieres par chapitre
+%-------------------------------------------------------------------
+
+% preparer les mini-tables des matieres par chapitre.
+% (commande de minitoc.sty)
+%\dominitoc
+
+%-------------------------------------------------------------------
+%                         Page de titre:
+%-------------------------------------------------------------------
+
+
+\ThesisKind{M2 IVI - M3DA}
+\ThesisTitle{Stéréovision dense}
+\ThesisAuthor{Bruno Ordozgoiti}
+%\ThesisDate{12/10/2013}
+\ThesisPresentedThe{12/10/2013}
+%\NomDuLaboOuEntreprise{Nom labo ou entreprise}
+%\LogoLaboOuEntreprise{alcove} % Image du logo du labo ou ets dans le rep img
+
+\NomDuLaboOuEntreprise{}
+\LogoLaboOuEntreprise{} % Image du logo du labo ou ets dans le rep img
+
+\TheseLilleI
+
+\NewJuryCategory{encadrant}{\it Encadrant :}
+                        {\it Encadrants :}
+
+%\encadrant = {Nom encadrant 1\\
+%              Nom encadrant 2}
+
+% Creation de la page de titre:
+\MakeThesisTitlePage
+
+
+
+%-------------------------------------------------------------------
+%              Exemple d'utilisation de \SpecialSection
+%-------------------------------------------------------------------
+
+% La commande \mainmatter (nouvelle commande LaTeX2e) permet de passer
+% a la numerotation arabe (ce que fait \pagenumbering{arabic})
+% et de faire commencer la nouvelle page 1 sur une page impaire.
+% On evitera donc d'utiliser directement \pagenumbering{arabic}.
+\mainmatter
+
+% ----------------------------------------------------------------
+
+
+
+% Pour ne pas avoir le mot `Chapitre' au debut de chaque chapitre.
+\NoChapterHead
+
+
+%--------------------------------------------------------------------------------------
+%--------------------------------------------------------------------------------------
+
+
+\section*{Similarité par SSD}
+
+On va chercher des correspondences de points entre les images obtenues par les caméras de gauche et de droite. Dans l'image de droite, les objects apparaissent un peu plus a la gauche (fig. \ref{fig:both}). 
+
+\begin{figure}[!ht]
+  \centering
+  \includegraphics[height=4cm]{both.png}
+  \caption{Images gauche et droite}
+  \label{fig:both}
+\end{figure}
+
+Alors, pour retrouver un pixel de l'image de gauche dans l'image de droite, il faut le rechercher dans valeurs égales ou plus petites de l'axe $x$ (et l'inverse pour un pixel de l'image de droite dans l'image de gauche). Pour savoir si deux pixels des images correspondent au même point du monde réel, on examinera leur environnement et le comparera en utilisant la somme de distances carrées.
+\\
+La fonction iviComputeLeftSSDCost calcule la SSD entre deux régions des images en prennant en compte un décalage donné et une taille de la fenetre. Dans un premier temps, on va calculer la SSD pour décalages entre 0 et 32, et enregistrer chaque resultat dans mSSD. La variable mMinSSD contiendra le minimum mSSD pour chaque pixel. Le décalage correspondant a mMinSSD sera enregistré dans mLeftDisparityMap.
+\\
+\subsection*{Accès aux pixels}
+Grace à ces instructions
+
+\begin{lstlisting}[frame=trBL]
+pdPtr1 = mMinSSD.ptr<double>(iRow);
+pdPtr2 = mSSD.ptr<double>(iRow);
+pucDisparity = mLeftDisparityMap.ptr<unsigned char>(iRow);
+\end{lstlisting}
+
+On prends des pointeurs aux débuts des images. En utilisant l'operateur increment, on change leur position selon leur type.
+
+\\
+La taille de la démi-fenêtre est utilisée pour obtenir le début de chaque ligne.
+\begin{lstlisting}[frame=trBL]
+pdPtr1 += iWindowHalfSize;
+pdPtr2 += iWindowHalfSize;
+pucDisparity += iWindowHalfSize;
+\end{lstlisting}
+Les pixels etant plus proches du bord de l'image que la taille de la démi-fenetre n'ont pas assez pixels autour d'eux (fig. \ref{fig:fenetre}), donc il faut commencer par le premier pixel ayant suffisament de pixels dans son environnement.
+
+\begin{figure}[!ht]
+  \centering
+  \includegraphics[height=4cm]{fenetre.png}
+  \caption{Pixels dont la SSD va être calculée}
+  \label{fig:fenetre}
+\end{figure}
+
+La fonction mixMaxLoc nous permettre de retrouver les valeurs minimale et maximale des images. La fonction normalize modifie tous les pixels de telle façon que les nouveaux minimum et maximum correspondent à les valeurs indiquées. En utilisant 0 et 255 on maximise le contraste. (figs. \ref{fig:ld}, \ref{fig:rd})
+
+\begin{figure}[!ht]
+  \centering
+  \includegraphics[height=4cm]{left-disparity.png}
+  \caption{Carte de disparités gauche}
+  \label{fig:ld}
+\end{figure}
+
+\begin{figure}[!ht]
+  \centering
+  \includegraphics[height=4cm]{right-disparity.png}
+  \caption{Carte de disparités droite}
+  \label{fig:rd}
+\end{figure}
+
+On voit qu'il y a de décalages apparement bizarres là où il peut y avoir des occultations. 
+
+\section*{Vérification gauche-droite}
+Pour minimiser le nombre de faux appariements, on peut conserver seulement les correspondences satisfaisant cette proprieté
+
+$$
+\hat{d}_{r} (x_{r} , y) = \hat{d}_{l} (x_{r} + \hat{d}_{r} (x_{r} , y), y)
+$$
+$$
+\hat{d}_{l} (x_{l} , y) = \hat{d}_{r} (x_{l} - \hat{d}_{l} (x_{l} , y), y)
+
+$$
+
+c'est à dire, si un pixel $a$ est lié a un pixel $b$ selon la carte de disparités gauche, le pixel $b$ doit être lié au pixel $a$ selon la carte de disparités droite.
+\\
+Après le verifier, on obtient une masque de validité pour la carte de disparités (fig. \ref{fig:carte}).
+
+\begin{figure}[!ht]
+  \centering
+  \includegraphics[height=4cm]{validity-mask.png}
+  \caption{Masque de validité (taille démi-fenêtre=2)}
+  \label{fig:carte}
+\end{figure}
+
+De la carte de disparités, on ne conservera que les pixels dont la valeur de la masque est 0.
+\\
+On se rend compte, quand même, qu'il y a un grand nombre de faux appariements (pas seulement les occultations). En utilisant une plus grande fenêtre de correlation ($w=4$) on obtient plus d'information sur l'environnement de chaque pixel, alors la probabilité de retrouver un vrai appariement augmente (fig. \ref{fig:carte4}). C'est increment rend l'algorithme beaucoup plus lourd, mais ça ne pose plus un problème avec la mèthode recursif décrit ensuite.
+
+\begin{figure}[!ht]
+  \centering
+  \includegraphics[height=4cm]{validity-mask-4.png}
+  \caption{Masque de validité (taille démi-fenêtre=4)}
+  \label{fig:carte4}
+\end{figure}
+
+
+\section*{Calcul efficace de SSD}
+Dans le rapport, les autheurs prennent en compte la redondance presénte dans les calculs. Cette redondance est aussi presénte dans la méthode vu en cours. Pour calculer la SSD d'un pixel, on fait des calculs déjà fait en calculant le pixel précédent. Dans la figure \ref{fig:red} on voit que une grande partie des calculs effectués pour le pixel $(2,2)$ sont faites encore une fois pour la SSD du pixel $(2,3)$. 
+
+\begin{figure}[!ht]
+  \centering
+  \includegraphics[height=4cm]{redundant.png}
+  \caption{Calculs redundants}
+  \label{fig:red}
+\end{figure}
+
+Pour eviter ça, les autheurs proposent de ne calculer que les nouvelles différences carrés. C'est evident qu'il ne faut que faire des calculs pour les pixels cochés en vert dans la figure \ref{fig:opt}
+
+\begin{figure}[!ht]
+  \centering
+  \includegraphics[height=4cm]{opt1.png}
+  \caption{Pixels à calculer}
+  \label{fig:opt}
+\end{figure}
+
+De plus, les autheurs utilisent aussi la recursivité pour eviter des répétitions en calculant les valeurs des colonnes de pixels.
+\\
+On peut utiliser cette mèthode pour le calcul de la SSD en modifiant la fonction $P$.
+
+$$
+P(x,y,d)=(I_{l}(x,y)-I_{r}(x-d,y))^{2}
+$$
+
+Le nombre de calculs est determiné principalement par les appels recursifs à la fonction $Q(x,y,d)$. Lorsque $y=0$, la fonction $Q$ calcule la valeur de $P$ pour tous les pixels compris dans l'hauteur de la fenêtre (une partie reste en dehors l'image, donc c'est ignorée). Pour les autres cas, la fonction calcule une valeur et enleve une autre, c'est à dire qu'elle fait deux soustractions et une multiplication.
+\\
+La fonction $Q$ fait, alors, $y*3+w+1$ opérations élémentaires ($w$ etant la taille de la démi-fenêtre). Etant donné que pour calculer la SSD d'un pixel il faut appeller la fonction $Q$ deux fois et additioner la valeur précédente, chaque pixel aura besoin de $2*(y*3+w+1)+1$ opérations élémentaires.
+\\
+La mèthode vu en cours a besoin de $3*(2w+1)^{2}-1$ opérations pour chaque pixel (Différences entre chaque paire, puissance et addition de toutes les valeurs). L'optimisation recursif dépends linéairement de la taille de l'image, mais la mèthode originale dépends exponentiellement de la taille de la fenêtre de correlation.
+\\
+C'est evident, alors, que la mèthode optimisée nous permet d'utiliser des fenêtres beaucoup plus grandes sans pénalisation. 
+
+\end{document}

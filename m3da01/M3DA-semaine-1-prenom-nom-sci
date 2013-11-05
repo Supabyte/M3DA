@@ -1,0 +1,203 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<!-- Lille 1, copyright 2010 -->
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="fr" lang="fr">
+  <head>
+    <title>Master IVI | Cours / M3DA-semaine-1-prenom-nom-sci</title>
+    <meta http-equiv='Content-Style-Type' content='text/css' />
+    <!--HeaderText--><style type='text/css'><!--.editconflict { color:green; 
+  font-style:italic; margin-top:1.33em; margin-bottom:1.33em; }
+a.varlink { text-decoration:none; }
+
+--></style>
+  <link rel='stylesheet' href='/pub/css/pmwiki-core.css' type='text/css' />
+
+  <script type="text/javascript" src="http://master-ivi.univ-lille1.fr/pub/LaTeXMathML/LaTeXMathML.js"> </script>
+<link rel="stylesheet" type="text/css" href="http://master-ivi.univ-lille1.fr/pub/css/ics.css" media="screen" />
+  <meta name='robots' content='index,follow' />
+<meta name='description' content='master ivi informatique ase lille vision interaction image cours en ligne optique' />
+
+    <link rel='stylesheet' title="Lille 1" href='http://master-ivi.univ-lille1.fr/pub/skins/lille1/lille1.css' type='text/css' />
+    <link rel='stylesheet' title="Lille 1" href='http://master-ivi.univ-lille1.fr/pub/skins/lille1/lille1-logo.css' type='text/css' />
+    <link rel='stylesheet' title="Lille 1" href='http://master-ivi.univ-lille1.fr/pub/skins/lille1/lille1-violet.css' type='text/css' />
+    <link rel='stylesheet' title="Lille 1" href='http://master-ivi.univ-lille1.fr/pub/skins/lille1/acces-lille1.css' type='text/css' />
+    <link rel='stylesheet' title="Lille 1" href='http://master-ivi.univ-lille1.fr/pub/skins/lille1/beautifier.css' type='text/css' />
+    <link rel='icon' title="Lille 1" href='http://master-ivi.univ-lille1.fr/pub/skins/lille1/images/lille1-icon.png' type='image/png' />
+  </head>
+  <body onload="if (typeof initapplets == 'function') initapplets ();">
+    <div id='acces'>
+      <form action="http://www.univ-lille1.fr/Accueil/redirection" method="get">
+        <div> <img src="http://master-ivi.univ-lille1.fr/pub/skins/lille1/images/minilogo-lille1.png" alt="Universit&eacute; Lille1" title="Universit&eacute; Lille1" />
+          <div id="englobe_acces">
+            <p><label for="acces_direct">Acc&eacute;der aux autres sites de l'Universit&eacute;:</label></p>
+            <select name="lien" id="acces_direct">
+              <option value=""></option>
+              <optgroup label="UFR et Facult&eacute;">
+                <option value="http://ecosocio.univ-lille1.fr/">Facult&eacute; des Sciences Economiques et Sociales</option>
+                <option value="http://sm-wimereux.univ-lille1.fr/">Station Marine de Wimereux</option>
+                <option value="http://www.univ-lille1.fr/ufrbio">UFR Biologie</option>
+                <option value="http://chimie.univ-lille1.fr/">UFR Chimie</option>
+                <option value="http://geographie.univ-lille1.fr/">UFR G&eacute;ographie</option>
+                <option value="http://ieea.univ-lille1.fr/">UFR IEEA</option>
+                <option value="http://ufr-math.univ-lille1.fr/">UFR Math&eacute;matiques</option>
+                <option value="http://physique.univ-lille1.fr/">UFR Physique</option>
+                <option value="http://www.univ-lille1.fr/geosciences/">UFR Sciences de la Terre</option>
+              </optgroup>
+              <optgroup label="Services">
+                <option value="http://doc.univ-lille1.fr/">Biblioth&egrave;que universitaire</option>
+                <option value="http://www.univ-lille1.fr/cups/">CUPS</option>
+                <option value="http://cri.univ-lille1.fr">Centre de Ressources Informatiques</option>
+                <option value="http://ci.univ-lille1.fr/">Centre international</option>
+                <option value="http://www.univ-lille1.fr/personnels/">DPRH</option>
+                <option value="http://ofip.univ-lille1.fr/">OFIP</option>
+                <option value="http://pass-pro.univ-lille1.fr">Pass&#039;Pro</option>
+                <option value="http://suaio.univ-lille1.fr">SUAIO</option>
+                <option value="http://suaps.univ-lille1.fr/">SUAPS</option>
+                <option value="http://www.univ-lille1.fr/sudes">SUDES</option>
+                <option value="http://semm.univ-lille1.fr">Service Multim&eacute;dia</option>
+              </optgroup>
+              <optgroup label="Ecoles et Instituts">
+                <option value="http://cueep.univ-lille1.fr/cueep/">CUEEP</option>
+                <option value="http://www.iae.univ-lille1.fr/">IAE</option>
+                <option value="http://www-iut.univ-lille1.fr/">IUT A</option>
+                <option value="http://www.polytech-lille.fr/">Polytech-Lille</option>
+              </optgroup>
+            </select>
+            <input type="submit" title="Acc&eacute;der au site" value="ok"/>
+          </div>
+        </div>
+      </form>
+    </div>
+    <div id='wrapper'>
+      <div id='head'>
+        <div id='page-actions'><ul><li class='browse'><a accesskey=''  class='selflink' href='http://master-ivi.univ-lille1.fr/Cours/M3DA-semaine-1-prenom-nom-sci'>Vue</a>
+</li><li class='print'><a accesskey=''  rel='nofollow'  class='wikilink' href='http://master-ivi.univ-lille1.fr/Cours/M3DA-semaine-1-prenom-nom-sci?action=print'>Imprimer</a>
+</li><li class='logout'><a accesskey=''  rel='nofollow'  class='wikilink' href='http://master-ivi.univ-lille1.fr/Cours/M3DA-semaine-1-prenom-nom-sci?action=login'>Connexion</a>
+</li></ul>
+</div>
+        <div id='page-title-box'>
+          <div id='page-title'>Master IVI</div>
+          <div id='page-subtitle'>Cours > M3DA semaine 1 prenom nom sci</div>
+        </div>
+      </div>
+      <div id='image'>
+<object classid="clsid:D27CDB6E-AE6D-11cf-96B8-444553540000"  width="780" height="146" id="csSWF">
+  <param name="movie" value="http://master-ivi.univ-lille1.fr/fichiers/Site/bandeau.swf" />
+  <param name="quality" value="autohigh" />
+  <param name="bgcolor" value="#ffffff" />
+  <param name="allowfullscreen" value="true" />
+  <param name="scale" value="showall" />
+  <param name="allowscriptaccess" value="always" />
+  <param name="flashvars" value="autostart=false&thumb=http://master-ivi.univ-lille1.fr/fichiers/Site/bandeau.swf.thumb.png&thumbscale=55&color=0xffffff,0xffffff" />
+  <!--[if !IE]>-->
+    <object type="application/x-shockwave-flash" data="http://master-ivi.univ-lille1.fr/fichiers/Site/bandeau.swf"  width="780" height="146" id="csSWF">
+   <param name="quality" value="autohigh" />
+   <param name="bgcolor" value="#ffffff" />
+   <param name="allowfullscreen" value="true" />
+   <param name="scale" value="showall" />
+   <param name="allowscriptaccess" value="always" />
+   <param name="flashvars" value="autostart=false&thumb=http://master-ivi.univ-lille1.fr/fichiers/Site/bandeau.swf.thumb.png&thumbscale=55&color=0xffffff,0xffffff" />
+  <!--<![endif]-->
+   <div id="noUpdate">
+     <p>The video content presented here requires a more recent version of the Adobe Flash Player. If you are you using a browser with JavaScript disabled please enable it now. Otherwise, please update your version of the free Flash Player by <a href="http://www.adobe.com/go/getflashplayer">downloading here</a>.</p>
+   </div>
+  <!--[if !IE]>-->
+  </object>
+  <!--<![endif]-->
+</object>
+
+</div>
+      <div id='content'>
+        <div id='col-left'>
+          <!--PageLeftFmt-->
+            <div id='leftsidebar'><h1><a class='wikilink' href='http://master-ivi.univ-lille1.fr/Main/Accueil'><ins>Accueil</ins></a></h1>
+<h2><a class='wikilink' href='http://master-ivi.univ-lille1.fr/Main/Objectifs'>Objectifs</a></h2>
+<h2><a class='wikilink' href='http://master-ivi.univ-lille1.fr/Main/Programme'>Programme</a></h2>
+<h1><a class='wikilink' href='http://master-ivi.univ-lille1.fr/2013/Accueil'><ins>2013-2014</ins></a></h1>
+<h2><a class='wikilink' href='http://master-ivi.univ-lille1.fr/2013/Calendrier-M1'>Calendrier M1</a></h2>
+<h2><a class='wikilink' href='http://master-ivi.univ-lille1.fr/2013/Calendrier-M2'>Calendrier M2</a></h2>
+<h1><a class='wikilink' href='http://master-ivi.univ-lille1.fr/Cours/Accueil'><ins>Cours en ligne</ins></a></h1>
+<h2><a class='wikilink' href='http://master-ivi.univ-lille1.fr/Cours/PjE'>S1 - PjE</a></h2>
+<h2><a class='wikilink' href='http://master-ivi.univ-lille1.fr/Cours/RdF'>S2 - RdF</a></h2>
+<h2><a class='wikilink' href='http://master-ivi.univ-lille1.fr/Cours/TI'>S2 - TI</a></h2>
+<h2><a class='wikilink' href='http://master-ivi.univ-lille1.fr/Cours/M3DS'>S2 - M3DS</a></h2>
+<h2><a class='wikilink' href='http://master-ivi.univ-lille1.fr/Cours/M3DA'>S3 - M3DA</a></h2>
+<h2><a class='wikilink' href='http://master-ivi.univ-lille1.fr/Cours/VisA'>S3 - VisA</a></h2>
+<h2><a class='wikilink' href='http://master-ivi.univ-lille1.fr/Cours/RVI'>S3 - RVI</a></h2>
+<h2><a class='wikilink' href='http://master-ivi.univ-lille1.fr/Cours/VInd'>S3 - VInd</a></h2>
+<h2><a class='wikilink' href='http://master-ivi.univ-lille1.fr/Cours/PJS'>S3 - PJS</a></h2>
+</div>
+          <!--/PageLeftFmt-->
+        </div>
+        <div id='col-right'>
+          <!--PageText-->
+<div id='wikitext'>
+<h2>Fichier prenom-nom.sci</h2>
+<pre class='sourcecode'>
+<span class="linecomment">// -----------------------------------------------------------------------</span>
+<span class="linecomment">/// \brief Calcule un terme de contrainte a partir d'une homographie.</span>
+<span class="linecomment">///</span>
+<span class="linecomment">/// \param H: matrice 3*3 d&eacute;finissant l'homographie.</span>
+<span class="linecomment">/// \param i: premiere colonne.</span>
+<span class="linecomment">/// \param j: deuxieme colonne.</span>
+<span class="linecomment">/// \return vecteur definissant le terme de contrainte.</span>
+<span class="linecomment">// -----------------------------------------------------------------------</span>
+<span class="category_1">function</span> v = ZhangConstraintTerm(H, i, j)
+    <span class="linecomment">// A modifier!</span>
+    v = rand(1, 6);
+<span class="category_1">endfunction</span>
+
+<span class="linecomment">// -----------------------------------------------------------------------</span>
+<span class="linecomment">/// \brief Calcule deux equations de contrainte a partir d'une homographie</span>
+<span class="linecomment">///</span>
+<span class="linecomment">/// \param H: matrice 3*3 d&eacute;finissant l'homographie.</span>
+<span class="linecomment">/// \return matrice 2*6 definissant les deux contraintes.</span>
+<span class="linecomment">// -----------------------------------------------------------------------</span>
+<span class="category_1">function</span> v = ZhangConstraints(H)
+    v = [ZhangConstraintTerm(H, 1, 2); ...
+    ZhangConstraintTerm(H, 1, 1) - ZhangConstraintTerm(H, 2, 2)];
+<span class="category_1">endfunction</span>
+
+<span class="linecomment">// -----------------------------------------------------------------------</span>
+<span class="linecomment">/// \brief Calcule la matrice des parametres intrinseques.</span>
+<span class="linecomment">///</span>
+<span class="linecomment">/// \param b: vecteur resultant de l'optimisation de Zhang.</span>
+<span class="linecomment">/// \return matrice 3*3 des parametres intrinseques.</span>
+<span class="linecomment">// -----------------------------------------------------------------------</span>
+<span class="category_1">function</span> A = IntrinsicMatrix(b)
+    <span class="linecomment">// A modifier!</span>
+    A = rand(3, 3);
+<span class="category_1">endfunction</span>
+
+<span class="linecomment">// -----------------------------------------------------------------------</span>
+<span class="linecomment">/// \brief Calcule la matrice des parametres extrinseques.</span>
+<span class="linecomment">///</span>
+<span class="linecomment">/// \param iA: inverse de la matrice intrinseque.</span>
+<span class="linecomment">/// \param H: matrice 3*3 definissant l'homographie.</span>
+<span class="linecomment">/// \return matrice 3*4 des parametres extrinseques.</span>
+<span class="linecomment">// -----------------------------------------------------------------------</span>
+<span class="category_1">function</span> E = ExtrinsicMatrix(iA, H)
+    <span class="linecomment">// A modifier!</span>
+    E = rand(3, 4);
+<span class="category_1">endfunction</span>
+</pre>
+<p class='vspace'><a class='urllink' href='javascript:history.go(-1)' rel='nofollow'>Retour à la page précédente</a>
+</p>
+</div>
+
+        </div>
+        <div class='clearfix'></div>
+      </div>
+      <div class='clearfix'></div>
+      <!--PageFooterFmt-->
+        <div id='footer'>
+          <div id='copyright'><p>&copy; 2010, <a class='urllink' href='http://ieea.univ-lille1.fr/' rel='nofollow'>UFR d'IEEA</a> | spécialité commune aux mentions <a class='urllink' href='http://master-ase.univ-lille1.fr/' rel='nofollow'>ASE</a> et <a class='urllink' href='http://fil.univ-lille1.fr/master-informatique/' rel='nofollow'>Informatique</a> du <a class='urllink' href='http://www.univ-lille1.fr/etudes/offre-de-formation/Sciences-Technologies-Sante' rel='nofollow'>master S&amp;T</a> |
+<a class='urllink' href='http://www.univ-lille1.fr/' rel='nofollow'>Université Lille 1</a>
+</p>
+</div>
+        </div>
+      <!--/PageFooterFmt-->
+    </div>
+    <div class='clearfix'></div>
+  </body>
+</html>
+
