@@ -1,18 +1,21 @@
-#ifndef CHAIKIN_H
-#define CHAIKIN_H
+#ifndef FOURPOINT_H
+#define FOURPOINT_H
 
 #include "curve.h"
 
-class Chaikin : public Curve
+class FourPoint : public Curve
 {
-private:
+private :
     vector<Point2*> qVector;
-    vector<int> fixedPoints;
 public:
-    Chaikin();
+    FourPoint();
+
+    typedef Curve super;
+
     virtual void eval();
     virtual Point2 evalQ2i(int i);
     virtual Point2 evalQ2iPlus1(int i);
+
 };
 
-#endif // CHAIKIN_H
+#endif // FOURPOINT_H

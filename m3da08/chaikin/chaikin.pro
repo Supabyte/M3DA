@@ -53,7 +53,8 @@ SOURCES += \
     src/Error.cpp \
     src/curve.cpp \
     src/point2.cpp \
-    src/chaikin.cpp
+    src/chaikin.cpp \
+    src/fourpoint.cpp
 
 HEADERS += \
     src/UtilGL.h \
@@ -63,4 +64,5 @@ HEADERS += \
     src/Error.h \
     src/curve.h \
     src/point2.h \
-    src/chaikin.h
+    src/chaikin.h \
+    src/fourpoint.h
